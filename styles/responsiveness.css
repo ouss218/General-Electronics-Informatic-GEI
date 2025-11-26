@@ -1,0 +1,858 @@
+/* Burger Icon Animation */
+.mobile-nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 22px;
+    cursor: pointer;
+    z-index: 1002;
+    position: absolute;
+    top: 25px;
+    right: 20px;
+  }
+  .mobile-nav-toggle span {
+    height: 3px;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 2px;
+    transition: all 0.4s ease-in-out;
+  }
+  .mobile-nav-toggle.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .mobile-nav-toggle.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .mobile-nav-toggle.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+  
+  /* Overlay Background */
+  .mobile-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    backdrop-filter: blur(4px);
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  .mobile-overlay.show {
+    display: block;
+    opacity: 1;
+  }
+  
+  /* Slide-in Nav Menu */
+  .mobile-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 75%;
+    max-width: 300px;
+    background: rgb(25, 24, 24);
+    padding: 60px 30px;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+    transition: right 0.4s ease;
+  }
+  .mobile-nav.active {
+    right: 0;
+  }
+  .mobile-nav ul {
+    list-style: none;
+    padding: 0;
+  }
+  .mobile-nav ul li {
+    margin: 25px 0;
+  }
+  .mobile-nav ul li a {
+    text-decoration: none;
+    font-family: audiowide;
+    font-style: oblique;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 500;
+    color: #ffffff;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  .mobile-nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: crimson;
+    transition: width 0.3s ease;
+  }
+  .mobile-nav ul li a:hover::after {
+    width: 100%;
+  }
+  
+
+/*  Responsiveness  */
+@media screen and (max-width: 768px) {
+    html, body {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        min-height: 100vh;
+        
+
+      }
+
+    
+      
+    .nav {
+        display: none;
+    }
+
+    .mobile-nav-toggle {
+        display: flex;
+        margin-right: 10px;
+        margin-top: 10px;
+    }
+
+    #logo-animation {
+        top: -30px;
+        left: -100px;
+    }
+
+    
+      
+    #logo-img {
+        max-height: 100px;
+        margin-left: -60px;
+    }
+    #logo-text {
+        font-size: 11px;
+    }
+
+    #second-bg, #third-bg {
+        height: 150vw;
+        
+    }
+
+    .main-logo {
+        margin-left: 6vw !important;
+        margin-top: 17vw;
+    }
+    
+    .nav-f ul {
+        gap: 10vw;
+        left: 10vw;
+        top: 170px;
+    }
+
+
+    .nav-f ul li a {
+        font-size: 3vw;
+    }
+    
+    .InputContainer {
+        top: 240px;
+        left: 17vw;
+        width: 70vw;
+        height: 40px;
+
+    }
+
+    .input {
+        width: 68vw;
+        height: 38px;
+    }
+
+    .button {
+        top: 310px;
+        left: 33vw;
+    }
+
+    .copy img {
+        max-height: 6vw;
+        left: 3vw;
+    }
+
+    .copy h1 {
+        font-size: 1vw;
+    }
+
+    .copy ul {
+        gap: 5px;
+        top: -5px;
+        left: 56vw;
+    }
+
+    .copy ul li a {
+        font-size: 1vw;
+    }
+
+    .hero-txt-5 {
+        font-size: 7vw;
+        position: relative;
+        top: -80vh;
+        width: 30vw;
+        height: 50px;
+        line-height: 50px;
+        left: 14vw;
+    }
+
+    .hero-txt-1 {
+        font-size: 4.5vw;
+        position: relative;
+        top: -70vh;
+        width: 39vw;
+        height: 50px;
+        line-height: 50px;
+        left: 14vw;
+    }
+    .hero-txt-2 {
+        font-size: 4.5vw;
+        position: relative;
+        top: -70vh;
+        left: 14vw;
+    }
+
+
+    .main-prep {
+        font-size: 3vw !important;
+        top: -44vh !important;
+    }
+
+    .main-p {
+        font-size: 2.1vw !important;
+        top: -56vh !important;
+    }
+
+    .hero-txt-3 {
+        font-size: 7vw;
+        position: relative;
+        top: -80vh;
+        width: 49vw;
+        height: 50px;
+        line-height: 50px;
+        left: 11vw;
+    }
+    .hero-txt-6 {
+        font-size: 7vw;
+        position: relative;
+        top: -79vh;
+        
+        width: 30vw;
+        height: 50px;
+        line-height: 50px;
+        left: 14vw;
+    }
+
+    .hero-txt-4 {
+        font-size: 4vw;
+        position: relative;
+        top: -79vh;
+        width: 14vw;
+        height: 30px;
+        line-height: 30px;
+        left: 8vw;
+    }
+
+    #hero-prep {
+        font-size: 4vw;
+        left: 5vw;
+        position: relative;
+        top: -75vh;
+        text-wrap: balance;
+    }
+
+    
+
+    #hero-p {
+        font-size: 3vw;
+        left: 3vw;
+        position: relative;
+        top: -73vh;
+        text-wrap: wrap;
+    }
+    #depuis {
+        position: relative;
+        top: -74vh;
+        left: 40vw;
+        height: 20vw;
+    }
+    #Down-2 {
+        position: relative;
+        top: -65vh;
+        left: 25vw;
+        height: 8vw;
+    }
+
+    #Down-m {
+        position: relative;
+        top: -50vh;
+        left: 35vw;
+        height: 8vw;
+    }
+
+    .article h3 {
+        font-size: 4vw;
+        }
+
+    #sub-1, #sub-2 {
+        font-size: 4vw;
+        margin-left: 5vw;
+    }
+    
+
+    .img-1, .img-2, .img-4, .img-3 {
+        position: absolute;
+        top: 75vh;
+        left: 5vw !important;
+    }
+
+    #zone-1 {
+        top: -300px;
+    }
+
+    #zone-3 ul, #zone-4 ul {
+        font-size: 3vw;
+    }
+
+    #zone-3 img {
+        height: 35vw;
+        position: absolute;
+        top: 70vh;
+        margin-left: -17vw;
+    }
+    #zone-4 ul, #zone-5 ul, #zone-6 ul {
+        font-size: 3vw;
+        margin-left: -5vw;
+
+    }
+    #zone-4 img {
+        margin-left: -15vw;
+        position: absolute;
+        top: 50vh !important;
+    }
+    #zone-5 img {
+        margin-left: -35vw;
+        position: absolute;
+        top: 60vh !important;
+    }
+    .contact-form-container {
+        left: 0vw;
+    }
+
+    .contact-info {
+        top: 110vh;
+    }
+
+    .contact-info h1 {
+        font-size: 5vw;
+        position: relative;
+        left: -10vw !important;
+    }
+    #contact-footer {
+        position: relative;
+        margin-top: 80vh;
+    }
+    
+
+    #title-s {
+        font-size: 6vw;
+        left: 2vw;
+    }
+
+    #Down {
+        position: relative;
+        top: -30vh;
+    }
+
+    .pro {
+        gap: 5vw;
+
+    }
+
+    .pro img {
+        max-height: 8vw;
+    }
+
+    .pro-s {
+        top: -50vh;
+    }
+
+    .product-catalog {
+        overflow-y: scroll;
+        min-height: 100vh;
+        
+    }
+
+    .products-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+    .logs {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);  
+        gap: 10px;
+        justify-content: center;
+        align-items: stretch;
+        padding: 0 2vw;
+        
+    }
+
+    .log {
+        overflow: hidden;
+    }
+
+    
+    
+    #l-1 {
+      max-height: 40vw;  
+    }
+
+    .special-1 {
+        font-size: 3vw;
+    }
+
+    .whosus {
+        position: relative;
+        width: 100vw;
+        min-height: 100vh;
+    }
+
+    .why-us {
+        position: relative;
+        width: 100vw;
+        min-height: 100vh;
+        top: -20vh ;
+        
+    }
+
+
+    .whosus p {
+        font-size: 2.3vw;
+        left: 5vw;
+        top: 25vh;
+    }
+
+    .whosus h1 {
+        left: 5vw;
+    }
+
+    #badge {
+        max-height: 30vw;
+        top: 0vh;
+    }
+
+    #building {
+        max-height: 40vw;
+        top: 45vh;
+        left: 50vw;
+    }
+
+    .why-us h1 {
+        font-size: 7vw;
+        left: 6vw;
+        top: -10vh;
+    }
+
+    .why-us p {
+        font-size: 3.5vw;
+        font-weight: 200;
+        left: 3vw;
+        top: 10vh;
+        
+    }
+
+    .cards {
+        gap: 18vw;
+
+    }
+    .card img {
+        max-height: 45vw;
+    }
+    .card h1 {
+        font-size: 3vw;
+        top: 2vh;
+        left: 5vw;
+
+    }
+
+    #icon-1, #icon-2, #icon-3 {
+        max-height: 30vw;
+        top: 5vh;
+    }
+
+    .oursolutions {
+        position: relative;
+        width: 100vw;
+        min-height: 100vh; 
+        top: 10vh;
+        background-color: transparent;
+    }
+
+    #main-footer {
+        position: relative;
+        top: 0vh;
+        z-index: 100;
+    }
+    
+    #sepin {
+        display: none;
+    }
+
+
+}
+
+
+@media screen and (min-width: 769px) and (max-width: 1224px) {
+    html, body {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        min-height: 100vh;
+    }
+
+    .contact-body {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        min-height: 100vh;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    .mobile-nav-toggle {
+        display: flex;
+        margin-right: 50px;
+        margin-top: 45px;
+    }
+
+    #logo-animation {
+        top: -40px;
+        left: -10vw;
+        width: 60vw;
+        height: 250px;
+    }
+
+    #logo-img {
+        max-height: 120px;
+        margin-left: -40px;
+    }
+
+    #logo-text {
+        font-size: 13px;
+    }
+
+    .nav-f ul {
+        gap: 6vw;
+        left: 17vw;
+        top: 15vh;
+    }
+
+    .nav-f ul li a {
+        font-size: 2.2vw;
+    }
+
+    .InputContainer {
+        top: 220px;
+        left: 15vw;
+        width: 70vw;
+        height: 45px;
+    }
+
+    .input {
+        width: 68vw;
+        height: 43px;
+    }
+
+    .button {
+        top: 290px;
+        left: 40vw;
+    }
+
+    .copy img {
+        max-height: 5vw;
+        left: 2vw;
+    }
+
+    .copy h1 {
+        font-size: 1vw;
+        left: 6vw;
+    }
+
+    .copy ul {
+        gap: 8px;
+        top: 0;
+        left: 55vw;
+    }
+
+    .copy ul li a {
+        font-size: 1.5vw;
+    }
+
+    .hero-txt-5,
+    .hero-txt-6 {
+        font-size: 8vw;
+        top: -80vh;
+        width: 35vw;
+        left: 10vw;
+    }
+
+    .hero-txt-1,
+    .hero-txt-2 {
+        font-size: 6vw;
+        top: -80vh;
+        width: 40vw;
+        left: 5vw;
+    }
+
+    .hero-txt-3 {
+        font-size: 7vw;
+        top: -80vh;
+        width: 50vw;
+        left: 10vw;
+    }
+
+    .hero-txt-4 {
+        font-size: 5.5vw;
+        top: -78vh;
+        width: 20vw;
+        left: 1vw;
+    }
+
+    
+    #hero-prep {
+        font-size: 4vw;
+        left: 5vw;
+        position: relative;
+        top: -75vh;
+        text-wrap: balance;
+    }
+
+    
+
+    #hero-p {
+        font-size: 3vw;
+        left: 3vw;
+        position: relative;
+        top: -73vh;
+        text-wrap: wrap;
+    }
+
+    #depuis {
+        top: -67vh;
+        left: 40vw;
+        height: 16vw;
+    }
+
+    #Down-2, #Down-m {
+        top: -55vh;
+        left: 27vw;
+        height: 7vw;
+    }
+
+    .article h3,
+    #sub-1, #sub-2 {
+        font-size: 3vw;
+        margin-left: 4vw;
+    }
+    #sub-2 {
+        top: -40vh !important;
+        left: 1vw !important;
+    
+    }
+
+    .img-1, .img-2, .img-3, .img-4 {
+        top: 55vh !important;
+        left: 25vw !important;
+    }
+
+    #zone-1 {
+        top: -250px;
+    }
+
+    #zone-2 span {
+        font-size: 3vw;
+    }
+    #zone-2 h3 {
+        font-size: 5vw;
+    }
+
+
+    #zone-3 ul, #zone-4 ul,
+    #zone-5 ul, #zone-6 ul {
+        font-size: 2.5vw;
+    }
+
+    #zone-3 img {
+        height: 30vw;
+        top: 65vh;
+        margin-left: -10vw;
+    }
+
+    #zone-4 img {
+        margin-left: -12vw;
+        top: 55vh !important;
+    }
+
+    #zone-5 img {
+        margin-left: -30vw;
+        top: 60vh !important;
+    }
+
+    .contact-form-container {
+        left: 0vw;
+    }
+
+    .contact-info {
+        top: 80vh;
+    }
+    .info-bg {
+        display: none;
+    }
+
+    .contact-info h1 {
+        font-size: 4.5vw;
+        left: -6vw !important;
+    }
+
+    
+
+    #title-s {
+        font-size: 6vw;
+        left: 2.5vw;
+    }
+
+    #Down {
+        top: -28vh;
+    }
+
+    .pro {
+        gap: 4vw;
+    }
+
+    .pro img {
+        max-height: 9vw;
+    }
+
+    .pro-s {
+        top: -55vh;
+    }
+
+    .product-catalog {
+        overflow-y: scroll;
+        min-height: 100vh;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .logs {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 0 3vw;
+    }
+
+    #l-1 {
+        max-height: 35vw;
+    }
+
+    .special-1 {
+        font-size: 2.5vw;
+    }
+
+    .whosus, .why-us, .oursolutions {
+        width: 100vw;
+        min-height: 100vh;
+        margin-bottom: 50vw;
+        top: 0vh;
+    }
+
+    .whosus p {
+        font-size: 5vw;
+        left: 1vw;
+        top: 25vh;
+        text-align: left;
+        text-wrap: wrap;
+    }
+
+    .whosus h1 {
+        left: 5vw;
+        font-size: 8vw;
+    }
+
+    #badge {
+        max-height: 25vw;
+        top: 10vh;
+        left: 70vw;
+    }
+
+    #building {
+        max-height: 35vw;
+        top: 80vh;
+        left: 50vw;
+    }
+
+    .why-us h1 {
+        font-size: 6vw;
+        left: 5vw;
+        top: -10vh;
+    }
+
+    .why-us p {
+        font-size: 4vw;
+        left: 4vw;
+        top: 10vh;
+    }
+
+    .cards {
+        gap: 14vw;
+        top: 40vh;
+    }
+
+    .card img {
+        max-height: 40vw;
+    }
+
+    .card h1 {
+        font-size: 2.5vw;
+        top: 3vh;
+        left: 5vw;
+    }
+
+    #icon-1, #icon-2, #icon-3 {
+        max-height: 40vw;
+        top: 10vh;
+        left: 10vw;
+    }
+
+    
+
+    #main-footer {
+        top: -10vh;
+        z-index: 100;
+    }
+
+    #sepin {
+        display: none;
+    }
+
+    #main-ab-title {
+        position: relative;
+        font-size: 1vw !important;
+    }
+}
+
+
+
+

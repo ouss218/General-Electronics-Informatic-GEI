@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"name": "vetrine pfc",
+			"path": "."
+		},
+		{
+			"name": "LOGO",
+			"path": "../LOGO"
+		},
+		{
+			"name": "LOGO",
+			"path": "LOGO"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "vetrine pfc"
+	}
+}

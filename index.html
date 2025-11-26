@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=yes, width=600" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/responsiveness.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+
+</head>  
+
+<body class="index-body">
+
+    <header class="header">
+        <div id="logo-animation" class="main-logo"></div>
+
+        <script>
+            const container = document.getElementById('logo-animation');
+            const totalFrames = 60;
+            let currentFrame = 0;
+            const frameRate = 60; // ~16fps
+            let interval; // Declare outside so we can control it
+          
+            function playAnimation() {
+              interval = setInterval(() => {
+                if (currentFrame >= totalFrames) {
+                  clearInterval(interval); // ❌ stop the animation loop
+                  return;
+                }
+          
+                const frameName = String(currentFrame).padStart(5, '0') + '.png';
+                container.style.backgroundImage = `url('logo/${frameName}')`;
+          
+                currentFrame++;
+              }, frameRate);
+            }
+          
+            // ✅ IntersectionObserver to trigger only when visible
+            const observer = new IntersectionObserver((entries, obs) => {
+              entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                  playAnimation();
+                  obs.unobserve(container); // only once
+                }
+              });
+            }, {
+              threshold: 0.5
+            });
+          
+            observer.observe(container);
+          </script>
+        
+        
+        
+        </div>
+
+          
+            
+       
+
+        <nav class="nav" id="main-nav">
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="apropos.html">A propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="mobile-nav-toggle" id="mobileToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="mobile-overlay" id="mobileOverlay"></div>
+
+        
+        <!-- Mobile Navigation Menu -->
+        <div class="mobile-nav" id="mobileNav">
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="apropos.html">A propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+
+        
+
+        <!-- <img src="images/Shape.png" alt="" id="nav-bar"> -->
+    </header>
+
+    
+    <main>
+        <div class="hero-container">
+            <div class="hero-backgroundimg">
+                <div class="overlay">
+                <img id="hero-bg" src="images/main-bg.png" alt="">
+                </div>
+                <img id="second-bg" src="images/seconfary-bg.png" alt="">
+                <img id="third-bg" src="images/third-bg.png" alt="">
+            </div>
+            <div class="hero-txt-1">SIMPLIFIER LES DONNÉES,</div>
+            <div class="hero-txt-2">MAXIMISER L'ÉFFICACITÉ</div>
+            <h1 id="hero-prep" class="resp-p main-prep">Etude & realisation de projets informatique</h1>
+            <p id="hero-p" class="preserve-line-breaks main-p">Optimisez la gestion de votre stock, équipements, dossiers 
+                patients, paie,finances, ressources humaines, laboratoires 
+                et produits pharmaceutiques grâce à des logiciels dédiés et 
+                performants. Simplifiez vos opérations et gagnez en 
+                efficacité avec des outils conçus.</p>
+            <img src="images/depuis 1992 -2.png" alt="" id="depuis-2">
+            <a href="#id1"><img src="images/Down Button.png" alt="" id="Down-m" class="animate__animated animate__shakeY"></a>   
+        </div>
+        <div class="slider-container">
+            <div class="item">
+                <h1>Logiciel de Gestion de Laboratoire Anapath</h1>
+                <h1>Logiciel de Gestion de Financière & Budgétaire</h1>
+                <h1>Logiciel de Gestion du Dossier de Passion Numérisé</h1>
+                <h1>Logiciel de Gestion des Équipements et inventaires</h1>
+                <h1>Logiciel de Gestion des Ressources Humaines</h1>
+                <h1>Logiciel de Gestion des Produits Pharmaceutiques</h1>
+                <h1>Logiciel de Gestion des Stocks & Magasins</h1>
+                <h1>Logiciel de Gestion de Paie & Primes</h1>
+                <h1>Logiciel de Gestion L'aboratoire d'analyse médicale</h1>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="whosus" id="id1">
+                <h1>QUI SOMME nous ?</h1>
+                <p class="preserve-line-breaks"><span class="special-1">General electronic informatics</span> est une 
+                    entreprise innovante spécialisée dans le développement 
+                    de solutions informatiques dédiées à la gestion 
+                    d'entreprise. Nous mettons à disposition des logiciels 
+                    performants et adaptés aux besoins spécifiques 
+                    des secteurs de la santé, de la gestion de stock, 
+                    des ressources humaines et de la finance.</p>
+                <img src="images/Badge.png" alt="" id="badge">   
+                <img src="images/Business Building.png" alt="" id="building">  
+                <div id="sepin" style="position: absolute; width: 70vw; height: 2px; background-color: black; top: 600px; left: 15vw;"></div>
+            </div>
+            <div class="why-us" id="id2">
+                <h1 class="preserve-line-breaks" id="id2">Pourquoi choisir nos 
+                    logiciels ?</h1>
+                <p class="preserve-line-breaks">Une gestion optimisée réduit les coûts, améliore l’efficacité et sécurise les données. 
+                    Avec des logiciels adaptés, automatisez vos processus et simplifiez votre prise 
+                    de décision pour une performance optimale.</p>
+                
+                <div class="cards">
+
+                    <div class="card">
+                        <img src="images/conic gradient.png" alt="">
+                        <h1>Sécurité et Fiabilité</h1>
+                        <img src="images/Warning Shield.png" alt="" id="icon-1">
+                    </div>
+                    <div class="card">
+                        <img src="images/conic gradient.png" alt="">
+                        <h1 style="position: absolute; left: 0vw;">Accompagnement 
+                            Personnalisé</h1>
+                            <img src="images/Tools.png" alt="" id="icon-2">
+                    </div>
+                    <div class="card">
+                        <img src="images/conic gradient.png" alt="">
+                        <h1 style="position: absolute; left: 0vw;">Optimisation des 
+                            Performances</h1>
+                            <img src="images/Dashboard Gauge.png" alt="" id="icon-3">
+                    </div>
+                </div>
+                <a href="#id3"><img src="images/Down Button.png" alt="" id="Down" class="animate__animated animate__shakeY" style="position: absolute; top: 1240px; left: 45vw; filter: grayscale(100%); z-index: 100000;"></a>
+
+                <div id="sepin" style="position: absolute; width: 70vw; height: 2px; background-color: black; top: 1300px; left: 15vw;"></div>
+
+            </div>
+            <div class="oursolutions" id="id3">
+                <h1 id="id3">Nos solutions logicielles : </h1>
+                <div class="logs">
+                    <div class="log">
+                        <img src="images/logs/Rectangle 2.png" alt="" class="log-img">
+                        <img src="images/logs/1.png" alt="" id="l-1">
+                    </div>
+                    <div class="log">
+                        <img src="images/logs/Rectangle 3.png" alt="" class="log-img">
+                        <img src="images/logs/2.png" alt="" id="l-1">
+                    </div>
+                    <div class="log">
+                        <img src="images/logs/Rectangle 4.png" alt="" class="log-img">
+                        <img src="images/logs/4.png" alt="" id="l-1">
+                    </div>
+                    <div class="log">
+                        <img src="images/logs/Rectangle 5.png" alt="" class="log-img">
+                        <img src="images/logs/3.png" alt="" id="l-1">
+                    </div>
+                    <div class="log">
+                        <img src="images/logs/Rectangle 6.png" alt="" class="log-img">
+                        <img src="images/logs/6.png" alt="" id="l-1">
+                    </div>
+                    <div class="log">
+                        <img src="images/logs/Rectangle 7.png" alt="" class="log-img">
+                        <img src="images/logs/8.png" alt="" id="l-1">
+                    </div>
+                    <div class="log">
+                        <img src="images/logs/Rectangle 8.png" alt="" class="log-img">
+                        <img src="images/logs/5.png" alt="" id="l-1">
+                    </div>
+                    <div class="log">
+                        <img src="images/logs/Rectangle 9.png" alt="" class="log-img">
+                        <img src="images/logs/9.png" alt="" id="l-1">
+                    </div>
+                    <div class="log">
+                        <img src="images/logs/Rectangle 10.png" alt="" class="log-img">
+                        <img src="images/logs/7.png" alt="" id="l-1">
+                        
+                    </div>
+                </div>
+                <div id="sepin" style="position: absolute; width: 70vw; height: 2px; background-color: white; top: 3100px; left: 15vw;"></div>
+
+            </div>
+        </div>
+    </main>
+    
+    <footer class="footer" id="main-footer">
+        <div class="logo" style="left: 41vw;">
+            <img src="images/LOGOGEI.png" alt="" id="logo-img">
+            <h1 id="logo-text" class="preserve-line-breaks" style="color: #ffd01f;">GENERAL
+                ELECTRONIC
+                INFORMATICS
+            </h1>
+        </div>
+        <p style="text-transform: uppercase; text-align: center; font-style: oblique; font-size: 2.8vw; position: absolute; left: 17vw; top: 180px; text-wrap: nowrap;" class="preserve-line-breaks">Des solutions intelligentes 
+            <span style="font-size: 5vw;">pour</span> une gestion plus efficace.</p>
+        <div class="subscribe">
+            <button class="button">SOUSCRIVEZ</button>
+            <div class="InputContainer">
+                <input placeholder="Entrer Votre Email" id="input" class="input" name="text" type="text">
+                
+            </div>
+        </div>
+        <nav class="nav-f">
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">A propos</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="copy">
+            <ul>
+                <li><a href="#">Politique de confidentialité</a></li>
+                <li><a href="#">Conditions générales d'utilisation</a></li>
+                <li><a href="#">COOKIES</a></li>
+            </ul>
+            <img src="images/Copyright.png" alt=""><h1>2025 general electronic informatics, Tous droits réservés</h1>
+        </div>
+    </footer>
+
+<script src="index.js"></script>   
+<script>
+  document.querySelector(".button").addEventListener("click", async () => {
+    const email = document.querySelector("#input").value;
+
+    if (!email || !email.includes("@")) {
+      alert("Veuillez entrer une adresse email valide.");
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:3000/api/newsletter", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert("Merci pour votre inscription !");
+        document.querySelector("#input").value = "";
+      } else {
+        alert(data.message || "Erreur lors de l'inscription.");
+      }
+    } catch (error) {
+      alert("Erreur de connexion au serveur.");
+      console.error(error);
+    }
+  });
+</script> 
+</body>
+
+</html>

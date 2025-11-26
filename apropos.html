@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <link rel="stylesheet" href="styles/responsiveness.css">
+
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+    
+</head>  
+
+<body class="ab-bodyy">
+  <header class="header">
+    <div id="logo-animation"></div>
+
+    <script>
+        const container = document.getElementById('logo-animation');
+        const totalFrames = 60;
+        let currentFrame = 0;
+        const frameRate = 60; // ~16fps
+        let interval; // Declare outside so we can control it
+      
+        function playAnimation() {
+          interval = setInterval(() => {
+            if (currentFrame >= totalFrames) {
+              clearInterval(interval); // ❌ stop the animation loop
+              return;
+            }
+      
+            const frameName = String(currentFrame).padStart(5, '0') + '.png';
+            container.style.backgroundImage = `url('logo/${frameName}')`;
+      
+            currentFrame++;
+          }, frameRate);
+        }
+      
+        // ✅ IntersectionObserver to trigger only when visible
+        const observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              playAnimation();
+              obs.unobserve(container); // only once
+            }
+          });
+        }, {
+          threshold: 0.5
+        });
+      
+        observer.observe(container);
+      </script>
+    
+    
+    
+    </div>
+
+      
+        
+   
+
+    <nav class="nav">
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="apropos.html">A propos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="mobile-nav-toggle" id="mobileToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-nav" id="mobileNav">
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="apropos.html">A propos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+
+    
+
+    <!-- <img src="images/Shape.png" alt="" id="nav-bar"> -->
+</header>
+<main>
+    <div class="hero-container">
+        <div class="hero-backgroundimg">
+            <img id="hero-bg" src="images/Rectangle 3.png" alt="Background Image">
+        </div>
+        <div class="hero-txt-5" id="nt">NOTRE HISTOIRE,</div>
+        <div class="hero-txt-6" id="np">NOTRE PASSION</div>
+        <h1 id="hero-prep">À PROPOS DE NOUS</h1>
+        <p id="hero-p" class="preserve-line-breaks">
+            Depuis 1992, nous avons accompagné des milliers d'entreprises dans l'optimisation
+            de leurs processus grâce à des solutions innovantes. 
+            Nous mettons un accent particulier sur la qualité, 
+            la réactivité et l'excellence technique.
+        </p>
+        <img src="images/depuis 1992.png" alt="Since 1992" id="depuis"> 
+        <a href="#zone-1"><img src="images/Down Button.png" alt="Scroll Down" id="Down-2" class="animate__animated animate__shakeY"></a>   
+    </div>
+
+    
+
+
+    <section class="about-content">
+      <div class="container">
+        <h2 id="main-ab-title">Présentation de l'entreprise</h2>
+    
+        <article class="article" id="zone-1">
+          <img class="img-1" src="images/c3ade956-560b-409b-ae0c-6f26e105baac.jpeg" alt="" style="position: absolute; border: 5px solid #ffd01f; border-radius: 20px; max-height: 300px; left: 50vw;">
+          <img class="img-2" src="images/YO!.jpeg" alt="" style="position: absolute; border: 5px solid #ffd01f; border-radius: 20px; max-height: 300px; left: 50vw; opacity: 0;">
+
+          <span style="font-family: audiowide; font-style: oblique; text-transform: uppercase; color: #ffd01f; font-size: 7rem; position: relative; left: -5vw;">|</span><h3 class="preserve-line-breaks" style="position: relative; top: -110px;">1. Présentation de : 
+            General Électronics Informatic (GEI)</h3>
+          <p id="sub-1" class="preserve-line-breaks" style="position: relative; left: -5vw; top: -50px; font-weight: 300;">
+            Fondée le <strong>27 mars 2002</strong>, <strong>General Electronics Informatic</strong> 
+            est une entreprise algérienne spécialisée dans les services 
+            informatiques. Avec une solide expérience, GEI accompagne 
+            plusieurs établissements publics dans leur transformation 
+            numérique.
+          </p>
+          <div id="sub-2" style="position: relative; top: -250px; left: -10vw; opacity: 0;">
+          <p style="color: #ffd01f; font-weight: 600;">
+            Elle intervient dans plusieurs secteurs de la fonction publique :
+          </p>
+          <ul style="color: #007bff;">
+            <li>✓ Santé : EPSP, CHU, EHS, EPH</li>
+            <li>✓ Collectivités locales : APC</li>
+            <li>✓ Directions de wilaya : DSA, DSP</li>
+            <li>✓ Universités</li>
+          </ul>
+          </div>
+        </article>
+    
+        <article class="article" id="zone-2">
+          <img class="img-3" src="images/_ (2).jpeg" alt="" style="position: absolute; border: 5px solid #ffd01f; border-radius: 20px; max-height: 300px; left: 20vw; top: 300px;">
+          <img class="img-4" src="images/Download Algeria map geometric illustration creative design for free.jpeg" alt="" style="position: absolute; border: 5px solid #ffd01f; border-radius: 20px; max-height: 300px; left: 20vw; top: 300px; opacity: 0;">
+
+
+          <span style="font-family: audiowide; font-style: oblique; text-transform: uppercase; color: #ffd01f; font-size: 7rem; position: relative; left: -5vw;">|</span><h3>2. Zone d'action</h3>
+          <p>
+            GEI exerce ses activités à travers tout le <span>territoire national algérien</span>.
+          </p>
+        </article>
+    
+        <article class="article" id="zone-3">
+          <span style="font-family: audiowide; font-style: oblique; text-transform: uppercase; color: #ffd01f; font-size: 7rem; position: relative; left: -5vw;">|</span><h3>3. Activités principales de GEI</h3>
+          <img class="img-5" src="images/logs/1.png" alt="" style="position: absolute; border-radius: 20px; max-height: 300px; left: 50vw; opacity: 0;">
+          <img class="img-6" src="images/logs/2.png" alt="" style="position: absolute; border-radius: 20px; max-height: 300px; left: 50vw; opacity: 0;">
+          <img class="img-7" src="images/logs/3.png" alt="" style="position: absolute; border-radius: 20px; max-height: 300px; left: 50vw; opacity: 0;">
+          <img class="img-8" src="images/logs/4.png" alt="" style="position: absolute; border-radius: 20px; max-height: 300px; left: 50vw; opacity: 0;">
+          <img class="img-9" src="images/logs/5.png" alt="" style="position: absolute; border-radius: 20px; max-height: 300px; left: 50vw; opacity: 0;">
+          <img class="img-10" src="images/logs/6.png" alt="" style="position: absolute; border-radius: 20px; max-height: 300px; left: 50vw; opacity: 0;">
+          <img class="img-11" src="images/logs/7.png" alt="" style="position: absolute; border-radius: 20px; max-height: 300px; left: 50vw; opacity: 0;">
+          <img class="img-12" src="images/logs/8.png" alt="" style="position: absolute; border-radius: 20px; max-height: 300px; left: 50vw; opacity: 0;">
+          <img class="img-13" src="images/logs/9.png" alt="" style="position: absolute; border-radius: 20px; max-height: 300px; left: 50vw; opacity: 0;">
+
+          <ul>
+            <li id="t-1">✓ Bureau d'étude & consulting en informatique</li>
+            <li id="t-2" style="opacity: 0;">✓ Vente de matériel informatique</li>
+            <li id="t-3" style="opacity: 0;">✓ Réparation d’équipements informatiques</li>
+            <li id="t-4" style="opacity: 0;">✓ Installation & maintenance de réseaux</li>
+            <li id="t-5" style="opacity: 0;">✓ Développement de logiciels métiers :</li>
+          </ul>
+          <ul class="nested" style="color: #ffd01f;">
+            <li id="t-6" style="opacity: 0;">- Paie, primes, rappels, état matrice, ATS, DAS</li>
+            <li id="t-7" style="opacity: 0;">- Gestion des ressources humaines</li>
+            <li id="t-8" style="opacity: 0;">- Gestion budgétaire & financière</li>
+            <li id="t-9" style="opacity: 0;">- Gestion des stocks & magasins</li>
+            <li id="t-10" style="opacity: 0;">- Inventaires</li>
+            <li id="t-11" style="opacity: 0;">- Scolarité</li>
+            <li id="t-12" style="opacity: 0;">- Dossiers patients</li>
+            <li id="t-13" style="opacity: 0;">- Anapath</li>
+          </ul>
+        </article>
+    
+        <article class="article" id="zone-4">
+
+          <span style="font-family: audiowide; font-style: oblique; text-transform: uppercase; color: #ffd01f; font-size: 7rem; position: relative; left: -5vw;">|</span><h3>4. Mission de GEI</h3>
+          <p id="f-t" style="opacity: 0;">GEI se fixe pour mission de :</p>
+          <img class="img-f5" src="images/Laptops by Michael Houtz.jpeg" alt="" style="position: absolute; border: 5px solid #ffd01f; border-radius: 20px; max-height: 300px; left: 20vw; top: 380px; opacity: 0;">
+          <img class="img-f6" src="images/рабочее время.jpeg" alt="" style="position: absolute; border: 5px solid #ffd01f; border-radius: 20px; max-height: 300px; left: 20vw; top: 380px; opacity: 0;">
+          <img class="img-f7" src="images/032a40d5-661a-43df-a7ed-c1afd85d076d.jpeg" alt="" style="position: absolute; border: 5px solid #ffd01f; border-radius: 20px; max-height: 300px; left: 20vw; top: 380px; opacity: 0;">
+          <img class="img-f8" src="images/Collective Action - B20 hub.jpeg" alt="" style="position: absolute; border: 5px solid #ffd01f; border-radius: 20px; max-height: 300px; left: 20vw; top: 380px; opacity: 0;">
+
+          <ul>
+            <li id="f-6" style="opacity: 0;">✓ Identifier les besoins clients</li>
+            <li id="f-7" style="opacity: 0;">✓ Assurer un service après-vente réactif</li>
+            <li id="f-8" style="opacity: 0;">✓ Concevoir des solutions informatiques innovantes</li>
+            <li id="f-9" style="opacity: 0;">✓ Réaliser des études de marché</li>
+          </ul>
+        </article>
+    
+        <article class="article" id="zone-5">
+          <span style="font-family: audiowide; font-style: oblique; text-transform: uppercase; color: #ffd01f; font-size: 7rem; position: relative; left: -5vw; opacity: 0;">|</span><h3 id="fi-mt">5. Moyens informatiques</h3>
+
+          <img class="img-fi1" src="images/Free Vector _ Collection of machines used in offices isolated.jpeg" alt="" style="position: absolute; border: 5px solid #ffd01f; border-radius: 20px; max-height: 300px; left: 50vw; opacity: 0;">
+          <img class="img-fi2" src="images/Free Vector _ Internet communication.jpeg" alt="" style="position: absolute; border: 5px solid #ffd01f; border-radius: 20px; max-height: 300px; left: 50vw; opacity: 0;">
+          <img class="img-fi3" src="images/Best Art Projectors for Tracing, Drawing, & Painting in 2021.jpeg" alt="" style="position: absolute; border: 5px solid #ffd01f; border-radius: 20px; max-height: 300px; left: 50vw; opacity: 0;">
+
+
+          <p id="fi-t" style="opacity: 0;">Pour mener à bien ses missions, GEI dispose de :</p>
+          <ul>
+            <li id="fi-1" style="opacity: 0;">✓ Ordinateurs (Windows XP et Windows 7)</li>
+            <li id="fi-2" style="opacity: 0;">✓ Imprimantes & scanners</li>
+            <li id="fi-3" style="opacity: 0;">✓ Téléphones professionnels</li>
+            <li id="fi-4" style="opacity: 0;">✓ Photocopieuse</li>
+            <li id="fi-5" style="opacity: 0;">✓ Connexion Internet</li>
+            <li id="fi-6" style="opacity: 0;">✓ Data show</li>
+          </ul>
+        </article>
+    
+        <article class="article" id="zone-6">
+          <span style="font-family: audiowide; font-style: oblique; text-transform: uppercase; color: #ffd01f; font-size: 7rem; position: relative; left: -5vw;">|</span><h3 id="s-mt" style="opacity: 0;">6. Organisation interne</h3>
+          <p id="s-t" style="opacity: 0;">GEI est structurée de manière à couvrir l’ensemble de ses services :</p>
+          <ul>
+            <li id="s-1" style="opacity: 0;">✓ Une direction générale avec ses assistants</li>
+            <li id="s-2" style="opacity: 0;">✓ Une sous-direction régionale</li>
+            <li id="s-3" style="opacity: 0;">✓ Un service technique</li>
+            <li id="s-4" style="opacity: 0;">✓ Un service comptabilité</li>
+            <li id="s-5" style="opacity: 0;">✓ Un service de développement informatique</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+    
+    
+</main>
+
+<footer class="footer" id="ab-footer">
+  <div class="logo" style="left: 41vw;">
+      <img src="images/LOGOGEI.png" alt="" id="logo-img">
+      <h1 id="logo-text" class="preserve-line-breaks" style="color: #ffd01f;">GENERAL
+          ELECTRONIC
+          INFORMATICS
+      </h1>
+  </div>
+  <p style="text-transform: uppercase; text-align: center; font-style: oblique; font-size: 2.8vw; position: absolute; left: 17vw; top: 180px; text-wrap: nowrap;" class="preserve-line-breaks">Des solutions intelligentes 
+      <span style="font-size: 5vw;">pour</span> une gestion plus efficace.</p>
+  <div class="subscribe">
+      <button class="button">SOUSCRIVEZ</button>
+      <div class="InputContainer">
+          <input placeholder="Entrer Votre Email" id="input" class="input" name="text" type="text">
+          
+      </div>
+  </div>
+  <nav class="nav-f">
+      <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">A propos</a></li>
+          <li><a href="#">Contact</a></li>
+      </ul>
+  </nav>
+  <div class="copy">
+      <ul>
+          <li><a href="#">Politique de confidentialité</a></li>
+          <li><a href="#">Conditions générales d'utilisation</a></li>
+          <li><a href="#">COOKIES</a></li>
+      </ul>
+      <img src="images/Copyright.png" alt=""><h1>2025 general electronic informatics, Tous droits réservés</h1>
+  </div>
+</footer>
+
+<script src="index.js"></script>
+<script>
+  document.querySelector(".button").addEventListener("click", async () => {
+    const email = document.querySelector("#input").value;
+
+    if (!email || !email.includes("@")) {
+      alert("Veuillez entrer une adresse email valide.");
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:3000/api/newsletter", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert("Merci pour votre inscription !");
+        document.querySelector("#input").value = "";
+      } else {
+        alert(data.message || "Erreur lors de l'inscription.");
+      }
+    } catch (error) {
+      alert("Erreur de connexion au serveur.");
+      console.error(error);
+    }
+  });
+</script>
+</body>
+</html>

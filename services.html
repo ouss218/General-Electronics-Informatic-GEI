@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+
+    <link rel="stylesheet" href="styles/responsiveness.css">
+
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    
+</head>  
+
+<body class="services-body">
+  <header class="header">
+    <div id="logo-animation"></div>
+
+    <script>
+        const container = document.getElementById('logo-animation');
+        const totalFrames = 60;
+        let currentFrame = 0;
+        const frameRate = 60; // ~16fps
+        let interval; // Declare outside so we can control it
+      
+        function playAnimation() {
+          interval = setInterval(() => {
+            if (currentFrame >= totalFrames) {
+              clearInterval(interval); // ❌ stop the animation loop
+              return;
+            }
+      
+            const frameName = String(currentFrame).padStart(5, '0') + '.png';
+            container.style.backgroundImage = `url('logo/${frameName}')`;
+      
+            currentFrame++;
+          }, frameRate);
+        }
+      
+        // ✅ IntersectionObserver to trigger only when visible
+        const observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              playAnimation();
+              obs.unobserve(container); // only once
+            }
+          });
+        }, {
+          threshold: 0.5
+        });
+      
+        observer.observe(container);
+      </script>
+    
+    
+    
+    </div>
+
+      
+        
+   
+
+    <nav class="nav">
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="apropos.html">A propos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="mobile-nav-toggle" id="mobileToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-nav" id="mobileNav">
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="apropos.html">A propos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+
+    
+
+    <!-- <img src="images/Shape.png" alt="" id="nav-bar"> -->
+</header>
+<main>
+    <div class="hero-container">
+            <div class="hero-backgroundimg">
+                <img id="hero-bg" src="images/Rectangle 3.png" alt="">
+            </div>
+            <h1 id="title-s">NOS SOLUITIONS LOGICIEL</h1>
+            <div class="pro-s">
+                <div class="pro" id="showcase">
+                    <img src="images/logs/1.png" alt="" style="top: -30px;">
+                    <img src="images/logs/2.png" alt="" style="top: 20px;">
+                    <img src="images/logs/3.png" alt="" style="top: 70px;">
+                    <img src="images/logs/4.png" alt="" style="top: 120px;">
+                    <img src="images/logs/5.png" alt="" style="top: 170px;">
+                    <img src="images/logs/6.png" alt="" style="top: 120px;">
+                    <img src="images/logs/7.png" alt="" style="top: 70px;">
+                    <img src="images/logs/8.png" alt="" style="top: 20px;">
+                    <img src="images/logs/9.png" alt="" style="top: -30px;">
+                </div>
+            </div>
+            <a href="#products-scrollto"><img src="images/Down Button.png" alt="" id="Down" class="animate__animated animate__shakeY"></a> 
+    </div>
+    <div class="product-catalog">
+        <h2 class="catalog-title">Our Products</h2>
+      
+        <!-- Filters -->
+        <div class="filters" id="search">
+          <input type="text" id="search-input" placeholder="Search by name..." />
+          <div class="category-buttons" id="category">
+            <button data-category="all" class="active">All</button>
+            <button data-category="Anapath">Anapath</button>
+            <button data-category="Budget">Budget</button>
+            <button data-category="Dpn">Dpn</button>
+            <button data-category="Inventaire">Inventaire</button>
+            <button data-category="Laboratoire">Laboratoire</button>
+            <button data-category="Personnel">Personnel</button>
+            <button data-category="Pharma">Pharma</button>
+            <button data-category="Stock">Stock</button>
+            <button data-category="Wpaie">Wpaie</button>
+
+          </div>
+        </div>
+      
+        <!-- Product Grid -->
+        <div class="products-grid" id="products-scrollto">
+          <div class="product-card" data-category="Anapath" data-name="Cap48">
+            <img src="images/logs/1.png" alt="Cap 48">
+          </div>
+          <div class="product-card" data-category="Budget" data-name="Cap58">
+            <img src="images/logs/2.png" alt="Cap 58">
+          </div>
+          <div class="product-card" data-category="Dpn" data-name="Cap68">
+            <img src="images/logs/3.png" alt="Cap 63">
+          </div>
+          <div class="product-card" data-category="Inventaire" data-name="Cap78">
+            <img src="images/logs/4.png" alt="Cap 82">
+          </div>
+          <div class="product-card" data-category="Laboratoire" data-name="Cap88">
+            <img src="images/logs/5.png" alt="Glass Jar">
+          </div>
+          <div class="product-card" data-category="Personnel" data-name="Cap98">
+            <img src="images/logs/6.png" alt="Plastic Jar">
+          </div>
+          <div class="product-card" data-category="Pharma" data-name="Cap108">
+            <img src="images/logs/7.png" alt="Carton Box">
+          </div>
+          <div class="product-card" data-category="Stock" data-name="Cap118">
+            <img src="images/logs/8.png" alt="Display Box">
+          </div>
+          <div class="product-card" data-category="Wpaie" data-name="Cap128">
+            <img src="images/logs/9.png" alt="Shipping Box">
+          </div>
+        </div>
+    </div>
+
+    <div class="product-view-overlay" id="productView">
+        <div class="product-view-content">
+          <span class="close-btn" id="closeView">&times;</span>
+      
+          <div class="product-gallery" id="gallery"></div>
+      
+          <div class="product-details">
+            <h2 id="productTitle" style="font-family: Audiowide;">Product Title</h2>
+            <div id="productDesc" class="desc-block"></div>
+            <div id="productSpecs" class="specs-block" style="font-family: Audiowide; color: blue;"></div>
+
+            <div id="downloadBtnContainer">
+              <a id="downloadFiche" href="#" download style="display: none; font-family: Audiowide; color: red; text-decoration: underline;">📄 Download Fiche Technique</a>
+            </div>
+
+            <div class="contact-info-s">
+              <p>📞 021 63 36 77</p>
+              <p>📧 tasimaingel@amail.com</p>
+              <p>💬 <a href="https://wa.me/213770582018" target="_blank">WhatsApp us</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+</main>
+
+
+<footer class="footer" id="services-footer">
+    <div class="logo" style="left: 41vw;">
+        <img src="images/LOGOGEI.png" alt="" id="logo-img">
+        <h1 id="logo-text" class="preserve-line-breaks" style="color: #ffd01f;">GENERAL
+            ELECTRONIC
+            INFORMATICS
+        </h1>
+    </div>
+    <p style="text-transform: uppercase; text-align: center; font-style: oblique; font-size: 2.8vw; position: absolute; left: 17vw; top: 180px; text-wrap: nowrap;" class="preserve-line-breaks">Des solutions intelligentes 
+        <span style="font-size: 5vw;">pour</span> une gestion plus efficace.</p>
+    <div class="subscribe">
+        <button class="button">SOUSCRIVEZ</button>
+        <div class="InputContainer">
+            <input placeholder="Entrer Votre Email" id="input" class="input" name="text" type="text">
+            
+        </div>
+    </div>
+    <nav class="nav-f">
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">A propos</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="copy">
+        <ul>
+            <li><a href="#">Politique de confidentialité</a></li>
+            <li><a href="#">Conditions générales d'utilisation</a></li>
+            <li><a href="#">COOKIES</a></li>
+        </ul>
+        <img src="images/Copyright.png" alt=""><h1>2025 general electronic informatics, Tous droits réservés</h1>
+    </div>
+</footer>
+
+
+
+<script>
+    
+
+
+    const searchInput = document.getElementById('search-input');
+  const categoryButtons = document.querySelectorAll('.category-buttons button');
+  const productCards = document.querySelectorAll('.product-card');
+
+  function filterCatalog() {
+    const searchTerm = searchInput.value.toLowerCase();
+    const selectedCategory = document.querySelector('.category-buttons button.active').dataset.category;
+
+    productCards.forEach(card => {
+      const name = card.dataset.name.toLowerCase();
+      const category = card.dataset.category;
+      const nameMatch = name.includes(searchTerm);
+      const categoryMatch = selectedCategory === 'all' || category === selectedCategory;
+
+      if (nameMatch && categoryMatch) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  searchInput.addEventListener('input', filterCatalog);
+
+  categoryButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      categoryButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+      filterCatalog();
+    });
+  });
+
+
+
+
+  
+  const products = {
+    Cap48: {
+      title: "GeiAnapath",
+      images: ["1.png"],
+      description: [
+        "GeiAnapath est un logiciel de gestion de laboratoire d'anapath complet pour les établissements de santé bilingue en version monoposte et réseau, puissant, efficace, flexible et entièrement paramétrable",
+        "S'exécute sur plusieurs plateformes (Win 98, Xp, Win7, Win8, Win10...)."
+      ],
+      specs: [
+        "Gestion des patients avec toutes leurs informations personnelles.",
+        "Gestion des dossiers médicaux des différents patients.",
+        "Gestion des différents examens de : (Colorations Spéciales,Immunohistochimie, HistoEnzymologie, Biologie Moléculaire et autres examens).",
+        "Gestion et édition de résultats des différents examens prescrits pour le patient avec plusieurs paramètres et avec la possibilité d'etablir un compte rendu détaillé de l'état du patient.",
+        "Gestion et suivi des différents examens en instance."
+      ]
+    },
+    Cap58: {
+      title: "GeiBudget",
+      images: ["2.png"],
+      description: [
+        "GeiBudget est un logiciel de gestion financière et budgétaire complète pour les établissements de santé bilingue en version monoposte et réseau, puissant, efficace, flexible entièrement paramétrable",
+        "S'exécute sur plusieurs plateformes (Win 98, Xp, Win7, Win8, Win10...) en versions monoposte et réseau."
+      ],
+      specs: [
+        "Répartition budgétaire par imputations (budget primitif ou complémentaire).",
+        "Transferts de crédits par différents modes inter-chapitres ou inter-articles.",
+        "Ecritures et suivi de toutes les opérations budgétaires (engagements, liquidations, avoirs, mandatements et paiements.",
+        "Gestion et suivi automatique des marches, contrats conventions, avenants, bons de commandes et autres.",
+        "Gestion automatique et complète des fiches d'engagements (prises en comptes, opérations économie, dépenses, transferts de crédits et frais de missions).",
+        "Gestion complète des frais de missions.",
+        "Gestion des recettes propres de l'établissement ( Ov et encaissements)."
+      ]
+    },
+    Cap68: {
+      title: "GeiDPN",
+      images: ["3.png"],
+      description: [
+        "Gei_DPN est un Pack de logiciels pour la gestion du dossier médical de patient et son parcours au sein des différents services médicaux (UMC, Plateau Technique, Admission, Hospitalisation) du début à la fin, adaptable aux différentes structures de santé (CHU, EPH, EHS, EH, EPSP, CAC).Puissant, efficace, entièrement paramétrable et flexible.S'exécute SUr plusieurs plateformes (Win7, Win8,Win10, Win11) en versions monoposte et réseau."
+      ],
+      specs: [
+        "Module de gestion des urgences (Accueil, Tri et Orientation) des patients (Tri par système de couleurs et/ou système de MEWS)",
+        "Module de consultation médicale des patients",
+        "Module de gestion des files d'attentes avec écrans d'affichages",
+        "Module de gestion des examens de radiologie (demandes examens / réception de résultats, statistiques)",
+        "Module de gestion des analyses médicales (demandes examens / réception de résultats, statistiques)",
+        "Module de gestion de services (personnalisé pour chaque service / gestion des RDV par SMS)",
+        "Module de gestion d'Hospitalisation, Surveillance et observation des patients (demande d'hospitalisation ......"
+      ]
+    },
+    Cap78: {
+      title: "GeiInv",
+      images: ["4.png"],
+      description: [
+        "Geilnv est un logiciel de gestion des equipements et inventaires complète pour les établissements de santé bilingue en version monoposte et réseau, puissant, efficace, flexible et entièrement paramétrable avec la possibilité de modifier et de personnaliser les tables de codification (Famille, Sous Famille, Articles, Services, Affectations, etc.).Geilnv S'exécute sur plusieurs plateformes (Win7, Win8, Win10.. en versions monoposte et réseau."
+      ],
+      specs: [
+        "Gestion de tout matériel et équipement inventoriable (Médical et non Médical).",
+        "Module de saisie des opérations d'inventaire très simple à manipuler par l'utilisateur.",
+        "Option d'affectation du matériel inventorié par une fiche ou plusieurs fiches.",
+        "Gestion des mouvements des articles au sein de l'établissement (Mutation, Réintégration, Réforme, etc.) d'une façon simple.",
+        "Visualisation des situations et Ouantités des articles (utilisés ou non) en (Services ou en Stocks).",
+        "Gestion complète des frais de missions.",
+        "Module de gestion des réparations du matériel (Matériel médical et autre)."
+      ]
+    },
+    Cap88: {
+      title: "GeiLab",
+      images: ["5.png"],
+      description: [
+        "GeiLab est un logiciel de gestion de laboratoire complet pour les établissements de santé bilingue en version monoposte et réseau, puissant, efficace, flexible et entièrement parmétrable.S'exécute sur plusieurs plateformes (Win 98, Xp, Win7, Win8,Win10.)."
+      ],
+      specs: [
+        "Gestion des patients avec toutes leurs informations personnelles.",
+        "Gestion des dossiers médicaux des differents patients.",
+        "Gestion des differents examens de : (Biochimie, Hemobiologie, Microbiologie, etc).",
+        "Gestion et édition de résultats des différents examens préscrits pour le patient avec plusieurs paramétres et avec la possibilité d'établir un compte rendu détaillé de l'état du patient."
+        
+      ]
+    },
+    Cap98: {
+      title: "GeiPers",
+      images: ["6.png"],
+      description: [
+        "GeiPers est un logiciel de gestion des ressources humaines complet pour tout les établissements de fonction publique bilingue en version monoposte et réseau, puissant, efficace, flexible et entièrement paramétrable.GeiPers S'exécute sur plusieurs plateformes (Win7, Win8, Win10...) en versions monoposte et réseau."
+      ],
+      specs: [
+        "Affectation du personnel par grade, fonction, structure et service.",
+        "Les informations sur la carrière et secteur d'activités des personnels.",
+        "Position (par Corps, Grade, Fonction Statut .)......",
+        
+      ]
+    },
+    Cap108: {
+      title: "GeiPharma",
+      images: ["7.png"],
+      description: [
+        "GeiPharma Est un logiciel pertinent pour la gestion complète des stocks des différents produits pharmaceutiques (Instrumentations Médicales et Médicaments) des différents établissements de santé (CHU, EPH, EHS, EPSP, CAC,... etc).GeiPharma fiable, sûr, intuitif, portable et très simple dans sa conception. Sa facilité et sa richesse et en options permettent une gestion optimale et rapide de tout le parcours des produits pharmaceutiques depuis le début a la fin à savoir(Demande de Proforma, lancement commande (approvisionnement), réception des commandes Entrées), Distribution des produits (Sorties). Suivi des stocks et Inventaires et établissement de journaux et rapports).GeiPharma S'exécute sur plusieurs plateformes (Win 98, Xp, Win7, Win8, Win10,...) en versions monoposte et réseau."
+      ],
+      specs: [
+        "Bon Proformas : pour le suivi et la gestion des demandes Proformas",
+        "Bon de commandes : pour le suivi et la gestion des bons de commandes établis (avec plusieurs modèles d'impression pour le CF).",
+        "Marchés &Contrats : pour le suivi et la gestion facile de différents marchés et contrats signes avec es differents partenaires (Fournisseurs) durant tout l'exercice.",
+        "Stock Initial : pour la saisie et le suivi du stock initial ou le stock de demarrage....."
+        
+      ]
+    },
+    Cap118: {
+      title: "GeiStock",
+      images: ["8.png"],
+      description: [
+        "GeiStock est un logiciel pertinent pour la gestion complète et totale de n'importe quel type de stocks et magasins (Stock général, Stock papeterie, Stock dépenses.) différents établissements de santé (CHU, EPH,EPSP, CAC,..etc).EHS,GeiStock fiable, sûr, intuitif, portable et très simple dans sa conception. Sa facilité et sa richesse et en options permettent une gestion optimale et rapide de tout le parcours depuis le début à la fin à savoir (Demande de Proforma, lancement de commande (approvisionnement), réception des commandes (Entrées), Distribution des produits (Sorties), Suivi des stocks et Inventaires et établissement de journaux et rapports; GeiStock S'exécute sur plusieurs plateformes (Win 98, Xp, Win7, Win8, Win10,...) en versions monoposte et réseau."
+      ],
+      specs: [
+        "Bon Proformas : pour le suivi et la gestion des demandes Proformas.",
+        "Bon de commandes : pour le suivi et la gestion des bons de commandes etablis (avec plusieurs modeles d'impression pour le CF).",
+        "Marchés &Contrats: pour le suivi et la gestion facile de dirrerents marches et contrats signes avec les ditérent partenaires (Fournisseurs) durant tout l'exercice.",
+        "Stock Initial : pour la saisie et le suivi du stock initial ou , stock de démarrage après l'inventaire annuel (pour un nouvel exercice)......",
+        
+      ]
+    },
+    Cap128: {
+      title: "GeiWpaie",
+      images: ["9.png"],
+      description: [
+        "Geiwpaie est un logiciel de gestion de tout type de salaires, puissant, efficace, entièrement paramétrable et flexible. S'exécute sur plusieurs plateformes (Win 98, Xp, Win7, Win8, Win10, .) en versions monoposte et réseau."
+      ],
+      specs: [
+        "Le calcul et l'impression de la paie des Salaries et avec tout ses accessoires.",
+        "Le calcul et l'impression des différentes Primes et Indemnités.",
+        "Le calcul et l'impression de tout type de rappels de traitement / différence.",
+        "Le calcul et l'impression des différents états matrices (Initial, Modificatif et Complémentaire).",
+        "Le calcul et l'impression de tout type de fiches d'engagement.",
+        "Transfert des crédits entre imputations budgétaires.",
+        "La déclaration annuells de Salaires (DAS) et accessoires.",
+        "Suivi et impression des prêts des œuvres sociales."
+      ]
+    }
+    
+  };
+
+  const downloadLink = document.getElementById('downloadFiche');
+
+
+  const productView = document.getElementById('productView');
+  const gallery = document.getElementById('gallery');
+  const title = document.getElementById('productTitle');
+  const desc = document.getElementById('productDesc');
+  const specs = document.getElementById('productSpecs');
+  const closeView = document.getElementById('closeView');
+
+  productCards.forEach(card => {
+    card.addEventListener('click', () => {
+        const name = card.dataset.name;
+        const product = products[name];
+
+      if (product) {
+        title.textContent = product.title;
+
+        gallery.innerHTML = product.images.map(img => 
+          `<img src="images/logs/${img}" alt="${product.title}">`
+        ).join("");
+
+        desc.innerHTML = product.description.map(p => `<p>${p}</p>`).join("");
+        specs.innerHTML = `<ul>${product.specs.map(item => `<li>${item}</li>`).join("")}</ul>`;
+
+        // Update download link
+        const fichePath = `fiche/${name}.png`; // Ensure the file is named like Cap58.pdf
+        downloadLink.href = fichePath;
+        downloadLink.style.display = 'inline-block'; // Show the link
+
+        productView.style.display = 'block';
+      }
+    });
+  });
+
+  closeView.addEventListener('click', () => {
+    productView.style.display = 'none';
+  });
+
+  // Optional close on outside click
+  productView.addEventListener('click', e => {
+    if (e.target === productView) productView.style.display = 'none';
+  });
+
+
+  </script>
+  
+
+  <script src="index.js"></script>
+
+  <script>
+  document.querySelector(".button").addEventListener("click", async () => {
+    const email = document.querySelector("#input").value;
+
+    if (!email || !email.includes("@")) {
+      alert("Veuillez entrer une adresse email valide.");
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:3000/api/newsletter", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert("Merci pour votre inscription !");
+        document.querySelector("#input").value = "";
+      } else {
+        alert(data.message || "Erreur lors de l'inscription.");
+      }
+    } catch (error) {
+      alert("Erreur de connexion au serveur.");
+      console.error(error);
+    }
+  });
+</script>
+
+</body>
+
+</html>
