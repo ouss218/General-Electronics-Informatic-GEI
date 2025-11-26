@@ -48,7 +48,7 @@ Follow these instructions to get a copy of the project up and running on your lo
 
 1.  **Clone the repository**
     ```bash
-    git clone origin https://github.com/ouss218/General-Electronics-Informatic-GEI.git
+    git clone origin https://github.com/Labreche-Oussama/General-Electronics-Informatic-GEI.git
     cd gei-showcase-website
     ```
 
